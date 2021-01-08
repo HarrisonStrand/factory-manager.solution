@@ -70,6 +70,74 @@ git remote add origin [personal Github repo. link]
 6. At the bottom, ensure the option 'Dump Structure and Data' is selected.
 7. Click 'Start Import'
 
+#### **SQL IMPORT**
+```
+CREATE DATABASE  IF NOT EXISTS `harrison_strand`
+USE `harrison_strand`;
+-- MySQL dump 10.13  Distrib 8.0.15, for macos10.14 (x86_64)
+--
+-- Host: localhost    Database: harrison_strand
+-- ------------------------------------------------------
+-- Server version	8.0.15
+
+--
+-- Table structure for table `__EFMigrationsHistory`
+--
+
+DROP TABLE IF EXISTS `__EFMigrationsHistory`;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `__EFMigrationsHistory` (
+  `MigrationId` varchar(95) NOT NULL,
+  `ProductVersion` varchar(32) NOT NULL,
+  PRIMARY KEY (`MigrationId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Table structure for table `EngineerMachine`
+--
+
+DROP TABLE IF EXISTS `EngineerMachine`;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `EngineerMachine` (
+  `EngineerMachineId` int(11) NOT NULL AUTO_INCREMENT,
+  `EngineerId` int(11) NOT NULL,
+  `MachineId` int(11) NOT NULL,
+  PRIMARY KEY (`EngineerMachineId`),
+  KEY `IX_EngineerMachine_EngineerId` (`EngineerId`),
+  KEY `IX_EngineerMachine_MachineId` (`MachineId`),
+  CONSTRAINT `FK_EngineerMachine_Engineers_EngineerId` FOREIGN KEY (`EngineerId`) REFERENCES `engineers` (`EngineerId`) ON DELETE CASCADE,
+  CONSTRAINT `FK_EngineerMachine_Machines_MachineId` FOREIGN KEY (`MachineId`) REFERENCES `machines` (`MachineId`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Table structure for table `Engineers`
+--
+
+DROP TABLE IF EXISTS `Engineers`;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Engineers` (
+  `EngineerId` int(11) NOT NULL AUTO_INCREMENT,
+  `EngineerName` longtext,
+  `HireDate` longtext,
+  PRIMARY KEY (`EngineerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Table structure for table `Machines`
+--
+
+DROP TABLE IF EXISTS `Machines`;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Machines` (
+  `MachineId` int(11) NOT NULL AUTO_INCREMENT,
+  `MachineName` longtext,
+  `InstallDate` longtext,
+  PRIMARY KEY (`MachineId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Dump completed on 2021-01-08 15:40:50
+```
+
 #### **Note**: Do this is your main parent directory. You do not want to have git initialized in any other places.
 
 
