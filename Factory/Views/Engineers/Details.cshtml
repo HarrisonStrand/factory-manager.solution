@@ -19,10 +19,10 @@
     {
       <li>@join.Machine.MachineName</li>
       @using (Html.BeginForm("DeleteMachine", "Engineers"))
-    {
-      @Html.Hidden("joinId", @join.EngineerMachineId)
-      <input type="submit" value="Delete" class="btn btn-default"/>
-    } 
+      {
+        @Html.Hidden("joinId", @join.EngineerMachineId)
+        <input type="submit" value="Delete"/>
+      } 
     }
     </ul>
   }

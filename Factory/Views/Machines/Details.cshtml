@@ -15,12 +15,17 @@
 else
 {
   <h4><u>Licensed Engineers for @Html.DisplayFor(model => model.MachineName)</u></h4>
-  <ul>
+    <ul>
     @foreach(var join in Model.JoinEntries)
     {
       <li>@join.Engineer.EngineerName</li>
+      @using (Html.BeginForm("DeleteEngineer", "Machines"))
+      {
+        @Html.Hidden("joinId", @join.EngineerMachineId)
+        <input type="submit" value="Delete"/>
+      } 
     }
-  </ul>  
+    </ul>
 }
 <p>@Html.ActionLink("Edit Machine Information", "Edit", new { id = Model.MachineId })
 <p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
