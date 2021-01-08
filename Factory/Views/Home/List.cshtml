@@ -3,6 +3,7 @@
 }
 
 @using Factory.Models;
+@model List<Factory.Models.Engineer>;
 
 <h1>Hired Engineers:</h1>
 
@@ -11,15 +12,15 @@
   <h2>No Engineers have been hired yet...</h2>
 }
 
-@foreach(EngineerMachine element in Model)
+@foreach(Engineer engineer in Model)
 {
-  <li>@Html.ActionLink($"{element.EngineerName}", "Details", new { id = element.EngineerId })</li>
-  <li>@Html.ActionLink($"{element.MachineName}", "Details", new { id = element.MachineId })</li>
+  <li>@Html.ActionLink($"{engineer.EngineerName}", "Details", new { id = engineer.EngineerId })</li>
+    @using (Html.BeginForm("Delete", "Engineers", FormMethod.Get))
+  {
+    @Html.Hidden("id", @engineer.EngineerId)
+    <input type="submit" value="Remove Engineer" class="btn btn-default"/>
+  }
 }
-@* @foreach(Machine machine in Model)
-{
-  <li>@Html.ActionLink($"{machine.MachineName}", "Details", new { id = machine.MachineId })</li>
-} *@
 
-<p>@Html.ActionLink("Add New Engineer", "Create", "Engineers")</p>
+<p>@Html.ActionLink("Add New Engineer", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

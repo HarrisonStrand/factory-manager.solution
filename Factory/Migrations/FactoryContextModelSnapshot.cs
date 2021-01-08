@@ -37,11 +37,7 @@ namespace Factory.Migrations
 
                     b.Property<int>("EngineerId");
 
-                    b.Property<string>("EngineerName");
-
                     b.Property<int>("MachineId");
-
-                    b.Property<string>("MachineName");
 
                     b.HasKey("EngineerMachineId");
 

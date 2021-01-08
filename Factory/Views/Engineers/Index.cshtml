@@ -15,6 +15,11 @@
 @foreach(Engineer engineer in Model)
 {
   <li>@Html.ActionLink($"{engineer.EngineerName}", "Details", new { id = engineer.EngineerId })</li>
+    @using (Html.BeginForm("Delete", "Engineers", FormMethod.Get))
+  {
+    @Html.Hidden("id", @engineer.EngineerId)
+    <input type="submit" value="Remove Engineer" class="btn btn-default"/>
+  }
 }
 
 <p>@Html.ActionLink("Add New Engineer", "Create")</p>

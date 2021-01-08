@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Factory.Migrations
 {
     [DbContext(typeof(FactoryContext))]
-    [Migration("20210108194311_test1")]
-    partial class test1
+    [Migration("20210108222605_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,6 +25,8 @@ namespace Factory.Migrations
 
                     b.Property<string>("EngineerName");
 
+                    b.Property<string>("HireDate");
+
                     b.HasKey("EngineerId");
 
                     b.ToTable("Engineers");
@@ -37,11 +39,7 @@ namespace Factory.Migrations
 
                     b.Property<int>("EngineerId");
 
-                    b.Property<string>("EngineerName");
-
                     b.Property<int>("MachineId");
-
-                    b.Property<string>("MachineName");
 
                     b.HasKey("EngineerMachineId");
 
@@ -56,6 +54,8 @@ namespace Factory.Migrations
                 {
                     b.Property<int>("MachineId")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("InstallDate");
 
                     b.Property<string>("MachineName");
 

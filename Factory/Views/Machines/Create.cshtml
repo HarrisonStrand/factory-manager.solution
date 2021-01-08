@@ -11,6 +11,9 @@
     @Html.LabelFor(model => model.MachineName)
     @Html.TextBoxFor(model => model.MachineName)
 
+    @Html.Label("Installation Date")
+    @Html.TextBoxFor(model => model.InstallDate, new { @type = "date"})
+
     <input type="submit" value="Add New Machine" class="btn btn-default" />
 }
 <p>@Html.ActionLink("Show All Machines", "Index")</p>

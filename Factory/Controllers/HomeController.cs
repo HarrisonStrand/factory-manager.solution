@@ -22,7 +22,7 @@ namespace Factory.Controllers
     }
     public ActionResult List()
     {
-      return View(_db.EngineerMachine.ToList());
+      return View(_db.Engineers.ToList());
     }
   }
 }

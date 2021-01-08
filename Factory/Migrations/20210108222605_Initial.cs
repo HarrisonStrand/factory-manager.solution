@@ -13,7 +13,8 @@ namespace Factory.Migrations
                 {
                     EngineerId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    EngineerName = table.Column<string>(nullable: true)
+                    EngineerName = table.Column<string>(nullable: true),
+                    HireDate = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -26,7 +27,8 @@ namespace Factory.Migrations
                 {
                     MachineId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    MachineName = table.Column<string>(nullable: true)
+                    MachineName = table.Column<string>(nullable: true),
+                    InstallDate = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
