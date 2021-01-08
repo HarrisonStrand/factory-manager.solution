@@ -10,7 +10,8 @@ namespace Factory.Models
     }
     public int EngineerId { get; set; }
     public string EngineerName { get; set; }
-    public ICollection<EngineerMachine> JoinEntries { get; }
+    public string HireDate { get; set; }
+    public ICollection<EngineerMachine> JoinEntries { get; set; }
 
   }
 }

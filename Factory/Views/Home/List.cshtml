@@ -14,7 +14,7 @@
 @foreach(EngineerMachine element in Model)
 {
   <li>@Html.ActionLink($"{element.EngineerName}", "Details", new { id = element.EngineerId })</li>
-  @* <li>@Html.ActionLink($"{element.MachineName}", "Details", new { id = element.MachineId })</li> *@
+  <li>@Html.ActionLink($"{element.MachineName}", "Details", new { id = element.MachineId })</li>
 }
 @* @foreach(Machine machine in Model)
 {

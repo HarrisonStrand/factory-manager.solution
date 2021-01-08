@@ -15,6 +15,9 @@
     @Html.Label("Select Machine")
     @Html.DropDownList("MachineId")
 
+    @Html.Label("Hire Date")
+    @Html.TextBoxFor(model => model.HireDate, new { @type = "date"})
+
     <input type="submit" value="Hire Engineer" class="btn btn-default" />
 }
 <p>@Html.ActionLink("Show all Engineers", "Index")</p>

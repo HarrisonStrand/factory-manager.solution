@@ -11,6 +11,7 @@ namespace Factory.Models
     }
     public int MachineId { get; set; }
     public string MachineName { get; set; }
+    public string InstallDate { get; set; }
     public ICollection<EngineerMachine> JoinEntries { get; set; }
   }
 }
