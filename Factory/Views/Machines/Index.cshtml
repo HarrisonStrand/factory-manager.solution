@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models;
+@model List<Factory.Models.Machine>;
+
+<h1>Machines</h1>
+<hr />
+@if (@Model.Count == 0)
+{
+<h3>There are no Machines Listed</h3>
+}
+
+@foreach (Machine machine in Model)
+{
+  <li>@Html.ActionLink($"{machine.MachineName}", "Details", new { id = machine.MachineId })</li>
+  @using (Html.BeginForm("Delete", "Machines", FormMethod.Get))
+  {
+    @Html.Hidden("id", @machine.MachineId)
+    <input type="submit" value="Remove Machine" class="btn btn-default"/>
+  }
+}
+<p>@Html.ActionLink("Add a new Machine", "Create", "Machines")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
