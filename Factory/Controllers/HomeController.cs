@@ -20,14 +20,5 @@ namespace Factory.Controllers
     {
       return View();
     }
-    // public ActionResult List()
-    // {
-    //   var tables = new ViewAll  
-    //   {  
-    //       Engineers=_db.Engineers.ToList(),
-    //       Machines=_db.Machines.ToList()
-    //   };
-    //     return View(tables);
-    // }
   }
 }

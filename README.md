@@ -1,4 +1,4 @@
-# Doctors Office
+# Factory Manager
 
 #### **1/8/20**
 
@@ -14,11 +14,11 @@ There are no known bugs at this time.
 ## <u>**Getting Started**</u>
 ### 🔧 **Setup/Installation**
 #### **Project Editor Setup**
-1. Copy this download link: https://github.com/HarrisonStrand/factory-manager.git
+1. Copy this download link: https://github.com/HarrisonStrand/factory-manager.solution.git
 2. Open bash and go to the directory where you would like to store your cloned project.
 3. Clone the repo.
 ```
-git clone https://github.com/HarrisonStrand/factory-manager.git
+git clone https://github.com/HarrisonStrand/factory-manager.solution.git
 ```
 4. Navigate to the cloned project folder and open VS code.
 ```
@@ -47,8 +47,8 @@ git remote add origin [personal Github repo. link]
 
 #### **Import Database with Entity Framework Core**
 1. Navigate to factory-manager/Factory directory using your terminal.
-2. Run the command 'dotnet ef database update to generate the databse through Entity Framework Core.
-3. (Optional) To update the database with any changes to the code, run the command 'dotnet ef migrations add [MigrationsName] which will use Entity Framework Core's code-first principle to generate a database update. After, run the previous command 'dotnet ef database update' to update the database.
+2. Run the command ```dotnet ef database update``` to generate the databse through Entity Framework Core.
+3. (Optional) To update the database with any changes to the code, run the command ```dotnet ef migrations add [MigrationsName]``` which will use Entity Framework Core's code-first principle to generate a database update. After, run the previous command 'dotnet ef database update' to update the database.
 
 #### **AppSettings**
 1. Create a new file in the factory-manager/Factory directory named appsettings.json
@@ -70,7 +70,7 @@ git remote add origin [personal Github repo. link]
 6. At the bottom, ensure the option 'Dump Structure and Data' is selected.
 7. Click 'Start Import'
 
-#### **SQL IMPORT**
+#### **SQL MANUAL IMPORT**
 ```
 CREATE DATABASE  IF NOT EXISTS `harrison_strand`
 USE `harrison_strand`;
@@ -134,12 +134,7 @@ CREATE TABLE `Machines` (
   `InstallDate` longtext,
   PRIMARY KEY (`MachineId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- Dump completed on 2021-01-08 15:40:50
 ```
-
-#### **Note**: Do this is your main parent directory. You do not want to have git initialized in any other places.
-
 
 ## **Technologies Used**
 * Visual Studio Code 1.52.1
