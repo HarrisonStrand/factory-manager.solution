@@ -18,7 +18,12 @@ namespace Factory.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
-      return View();
+      var engineers = _db.Engineers.ToList();
+      var machines = _db.Machines.ToList();
+      Dictionary<string, object> model = new Dictionary<string, object> {};
+      model.Add("machine", machines);
+      model.Add("engineer", engineers);
+      return View(model);
     }
   }
 }
