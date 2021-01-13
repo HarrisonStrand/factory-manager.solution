@@ -1,12 +1,31 @@
+@using Factory.Models;
 @{
   Layout = "_Layout";
 }
 
 <h1>Factory Manager Homepage</h1>
 <hr />
-<p>You have @Model["machine"].Count machines.</p>
-<p>You have @Model["engineer"].Count engineers.</p>
+<p>You have @Model["machine"].Count machine(s).</p>
+<p>You have @Model["engineer"].Count engineer(s).</p>
 <br>
-<p>@Html.ActionLink("See all Machines", "Index", "Machines")</p>
-<p>@Html.ActionLink("See all Engineers", "Index", "Engineers")</p>
+<h3>List of Machines:</h3>
+<br>
+@foreach(Machine machine in Model["machine"])
+{
+  <li>@Html.ActionLink($"{machine.MachineName}", "Details", "Machines", new { id = machine.MachineId })</li>
+}
+<br>
+<h3>List of Engineers:</h3>
+<br>
+@foreach(Engineer engineer in Model["engineer"])
+{
+  <li>@Html.ActionLink($"{engineer.EngineerName}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
+}
+<br>
+<br>
+<br>
+<br>
+
+<p>@Html.ActionLink("Machine List Page", "Index", "Machines")</p>
+<p>@Html.ActionLink("Engineer List Page", "Index", "Engineers")</p>
 <p>@Html.ActionLink("List All", "List", "Home")</p>
